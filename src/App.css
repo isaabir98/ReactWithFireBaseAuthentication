@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+.signup{
+  padding-left: 526px;
+}
+.login{ padding-left: 526px;}
+.logsignbtns{padding-left: 780px;}
