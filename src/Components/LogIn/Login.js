@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { Card, Form, Button, ButtonGroup, Alert } from "react-bootstrap";
 import { useAuth } from "../../context";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Login() {
   const email = useRef();
@@ -27,39 +27,39 @@ export default function Login() {
   }
 
   return (
-    <Card>
-      <Card.Body>
-        <h1>Login</h1>
-        {error && <Alert variant="danger">{error}</Alert>}
-        <Form onSubmit={handleLogin}>
-          <Form.Group>
-            <Form.Control type="email" ref={email} placeholder="Email" />
-          </Form.Group>{" "}
-          <Form.Group>
-            <Form.Control
-              type="password"
-              ref={password}
-              placeholder="Password"
-            />
-          </Form.Group>
-          <Button
-            disabled={loading}
-            className="btn btn-warning float-right"
-            style={{ backgroundColor: "green" }}
-            type="Submit"
-          >
-            {" "}
-            login
-          </Button>{" "}
-          <Button
-            className="btn btn-warning float-right"
-            style={{ backgroundColor: "red" }}
-          >
-            {" "}
-            Cancel
-          </Button>
-        </Form>
-      </Card.Body>
-    </Card>
+    <>
+      <Card>
+        <Card.Body>
+          <h1>Login</h1>
+          {error && <Alert variant="danger">{error}</Alert>}
+          <Form onSubmit={handleLogin}>
+            <Form.Group>
+              <Form.Control type="email" ref={email} placeholder="Email" />
+            </Form.Group>{" "}
+            <Form.Group>
+              <Form.Control
+                type="password"
+                ref={password}
+                placeholder="Password"
+              />
+            </Form.Group>
+            <Button disabled={loading} className="w-100" type="Submit">
+              {" "}
+              login
+            </Button>{" "}
+            <Button className="btn btn-danger float-right w-100">
+              {" "}
+              Cancel
+            </Button>
+          </Form>
+          <div className="w-100 text-center mt-3">
+            <Link to="/forgot-password">Forgot Password?</Link>
+          </div>
+        </Card.Body>
+      </Card>
+      <div className="w-100 text-center mt-3">
+        <Link to="/registerForm">Need an Account?</Link>
+      </div>
+    </>
   );
 }

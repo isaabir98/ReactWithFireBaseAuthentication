@@ -6,7 +6,7 @@ import Dashboard from "./Components/Home/Dashboard";
 import { AuthProvider } from "./context";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import PrivateRoute from "./Components/PrivateRoute";
-
+import ForgotPassword from "./Components/LogIn/ForgotPassword";
 const App = () => {
   return (
     <Container
@@ -26,6 +26,10 @@ const App = () => {
                 element={<RegisterForm />}
               />
               <Route path="/login" element={<Login />}></Route>
+              <Route
+                path="/forgot-password"
+                element={<ForgotPassword />}
+              ></Route>
             </Routes>
           </AuthProvider>
         </Router>
